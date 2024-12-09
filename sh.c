@@ -3,6 +3,7 @@
 #include "types.h"
 #include "user.h"
 #include "fcntl.h"
+#include <stddef.h>
 
 // Parsed command representation
 #define EXEC  1
@@ -64,6 +65,8 @@ runcmd(struct cmd *cmd)
   struct pipecmd *pcmd;
   struct redircmd *rcmd;
 
+  if (cmd == NULL) 
+    return;
   if(cmd == 0)
     exit();
 
